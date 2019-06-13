@@ -1,9 +1,9 @@
-## intent:recomendar_filmes
-- me indica filmes de terror
-- me fala séries de ação
-- me indica aí um filme de terror
-- me indica um filme
-- recomenda um filme aí
+## intent:out_of_scope
+- Você fala sobre o meio ambiente?
+- Qual a origem do mundo?
+- Você tem signo?
+- Vc gosta de carnaval?
+- batatinha quando nasce
 
 ## intent:despedir
 - Tchau obrigada

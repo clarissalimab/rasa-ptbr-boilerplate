@@ -1,7 +1,10 @@
 intents:
+    - out_of_scope
     - cumprimentar
     - despedir
-    - recomendar_filmes
+    - action_genero_filmes
+    - action_recomendar_filmes
+    - action_test
 
 entities:
   - genero
@@ -24,10 +27,14 @@ templates:
         - text: |
             Vamos tentar mais uma vez? Eu não consegui te entender direito, me pergunta de outro jeito?
 
+
     utter_cumprimentar:
         - text: |
             Oi, eu sou um bot, um assistente virtual!
 
+        - text: |
+            Olá! Sou um bot pra te ajudar com algumas informações cinéfilas...
+            Quer saber de algum filme? Só falar!
 
     utter_despedir:
         - text: |
@@ -43,10 +50,12 @@ templates:
         - text: |
             Foi um prazer te ajudar!
             Quando surgir alguma dúvida, volte aqui!
-            Até mais!            
+            Até mais!
 
 actions:
     - utter_default
     - utter_cumprimentar
     - utter_despedir
+    - action_genero_filmes
     - action_recomendar_filmes
+    - action_test
