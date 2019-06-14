@@ -2,8 +2,10 @@ intents:
     - out_of_scope
     - cumprimentar
     - despedir
+    - elogiar
     - action_genero_filmes
     - action_recomendar_filmes
+    - action_movie_recommendation_type
     - action_test
 
 entities:
@@ -27,6 +29,10 @@ templates:
         - text: |
             Vamos tentar mais uma vez? Eu não consegui te entender direito, me pergunta de outro jeito?
 
+    utter_elogio:
+        - text: |
+            Nossa! Obrigado!
+            Você é muito lindo!
 
     utter_cumprimentar:
         - text: |
@@ -56,6 +62,8 @@ actions:
     - utter_default
     - utter_cumprimentar
     - utter_despedir
+    - utter_elogio
     - action_genero_filmes
     - action_recomendar_filmes
+    - action_movie_recommendation_type
     - action_test

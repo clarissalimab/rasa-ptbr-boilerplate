@@ -9,3 +9,7 @@
 ## fallback
 * out_of_scope
     - utter_default
+
+## Elogiar
+* elogiar
+    - utter_elogio

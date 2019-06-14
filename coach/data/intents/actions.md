@@ -38,7 +38,7 @@
 - me recomenda algum filme popular?
 - sabe de algum filme popular?
 
-## intent:action_recomendar_por_tipo
+## intent:action_movie_recommendation_type
 - me recomenda um filme de [ação](tipo)
 - me fala um filme de [thriller](tipo)
 - sabe de algum filme de [terror](tipo) que seja bom?

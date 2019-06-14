@@ -15,3 +15,7 @@
 ## action_recomendar_filmes
 * action_recomendar_filmes
     - action_recomendar_filmes
+
+## recomendar_por_filmes
+* action_movie_recommendation_type
+    - action_movie_recommendation_type

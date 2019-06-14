@@ -46,3 +46,11 @@
 - oiee
 - opa tudo bem
 - ola boa tarde
+
+## intent:elogiar
+- você é muito lindo
+- gatão
+- cheiroso
+- você é muito inteligente
+- você é legal
+- você é muito divertido
