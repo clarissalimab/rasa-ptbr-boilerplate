@@ -19,7 +19,7 @@ WORKDIR /app
 RUN ls bot
 
 RUN python -m pip install --upgrade pip                             && \
-    pip install --no-cache-dir -r /app/requirements.txt && \
+    pip install --no-cache-dir -r requirements.txt && \
     python -c "import nltk; nltk.download('stopwords');"            && \
     find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 
