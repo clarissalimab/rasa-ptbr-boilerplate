@@ -1,16 +1,13 @@
 build:
   docker:
-    botrequirements: ./docker/heroku-requirements.Dockerfile
-    coach: ./docker/bot.Dockerfile
-    actions: ./docker/actions.Dockerfile
-    bot_telegram: ./docker/bot.Dockerfile
+    bot: ./docker/heroku.Dockerfile
 
   config:
     TELEGRAM_BOT_USERNAME: ${TELEGRAM_BOT_USERNAME}
     TELEGRAM_TOKEN: ${TELEGRAM_TOKEN}
     TELEGRAM_WEBHOOK: ${TELEGRAM_WEBHOOK}
 release:
-  image: bot_telegram
+  image: heroku
   command: 
     - mkdir -p bot/models
 run:
