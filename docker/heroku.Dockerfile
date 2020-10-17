@@ -27,6 +27,6 @@ CMD rasa run actions --actions actions -vv
 
 RUN find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 
-RUN rasa train -vv --config ./bot/config.yml
+RUN rasa train -vv --config /app/bot/config.yml
 
 ENTRYPOINT ["/app/server.sh"]
