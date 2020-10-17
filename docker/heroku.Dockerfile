@@ -16,14 +16,13 @@ RUN git clone https://github.com/clarissalimab/rasa-ptbr-boilerplate.git
 
 RUN mkdir /bot
 RUN cp -r ./rasa-ptbr-boilerplate/bot /bot
+RUN mkdir /modules
+COPY cp -r ./rasa-ptbr-boilerplate/modules /modules
 WORKDIR /bot
 
 HEALTHCHECK --interval=300s --timeout=60s --retries=5 \
   CMD curl -f http://0.0.0.0:5055/health || exit 1
 
 CMD rasa run actions --actions actions -vv
-
-RUN mkdir modules
-COPY ./modules /modules
 
 RUN find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
