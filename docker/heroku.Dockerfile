@@ -2,6 +2,7 @@ FROM python:3.7-slim
 
 RUN apt-get update                                                  && \
     apt-get install -y gcc make build-essential                     && \
+    apt-get install git             && \
     python -m pip install --upgrade pip                             && \
     pip install --no-cache-dir rasa==1.10.10             && \
     pip install --no-cache-dir nltk==3.4.5             && \
@@ -11,9 +12,10 @@ RUN apt-get update                                                  && \
     apt-get clean                                                   && \
     apt-get remove -y build-essential
 
-RUN mkdir bot
-COPY ./bot /bot
+RUN git clone https://github.com/clarissalimab/rasa-ptbr-boilerplate.git
 
+RUN mkdir /bot
+RUN cp ./rasa-ptbr-boilerplate/bot /bot
 WORKDIR /bot
 
 HEALTHCHECK --interval=300s --timeout=60s --retries=5 \
