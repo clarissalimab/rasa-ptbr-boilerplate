@@ -10,9 +10,9 @@ RUN git clone https://github.com/clarissalimab/rasa-ptbr-boilerplate.git
 
 RUN mkdir /app
 RUN mkdir /app/bot
-RUN cp -r ./rasa-ptbr-boilerplate/bot /app/bot
+RUN cp -r ./rasa-ptbr-boilerplate/bot /app/bot/
 RUN mkdir /app/modules
-RUN cp -r ./rasa-ptbr-boilerplate/modules /app/modules
+RUN cp -r ./rasa-ptbr-boilerplate/modules /app/modules/
 RUN cp -r ./rasa-ptbr-boilerplate/requirements.txt /app/requirements.txt
 RUN cp ./rasa-ptbr-boilerplate/server.sh /app/server.sh
 WORKDIR /app
