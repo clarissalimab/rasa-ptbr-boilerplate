@@ -3,7 +3,9 @@ FROM python:3.7-slim
 RUN apt-get update                                                  && \
     apt-get install -y gcc make build-essential                     && \
     python -m pip install --upgrade pip                             && \
-    pip install --no-cache-dir -r ./requirements.txt             && \
+    pip install --no-cache-dir rasa==1.10.10             && \
+    pip install --no-cache-dir nltk==3.4.5             && \
+    pip install --no-cache-dir gunicorn==20.0.4             && \
     python -c "import nltk; nltk.download('stopwords');"            && \
     find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf    && \
     apt-get clean                                                   && \
