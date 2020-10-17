@@ -15,7 +15,7 @@ RUN apt-get update                                                  && \
 RUN git clone https://github.com/clarissalimab/rasa-ptbr-boilerplate.git
 
 RUN mkdir /bot
-RUN cp ./rasa-ptbr-boilerplate/bot /bot
+RUN cp -r ./rasa-ptbr-boilerplate/bot /bot
 WORKDIR /bot
 
 HEALTHCHECK --interval=300s --timeout=60s --retries=5 \
