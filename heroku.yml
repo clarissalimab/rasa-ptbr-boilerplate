@@ -11,4 +11,4 @@ release:
   command: 
     - mkdir -p bot/models
 run:
-  bot_telegram: rasa run -m models/ -vv --credentials credentials.yml --endpoints endpoints.yml
+  heroku: rasa run -m models/ -vv --credentials credentials.yml --endpoints endpoints.yml
