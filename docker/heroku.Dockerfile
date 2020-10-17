@@ -8,22 +8,24 @@ RUN apt-get update                                                  && \
 
 RUN git clone https://github.com/clarissalimab/rasa-ptbr-boilerplate.git
 
+RUN mkdir /app
+RUN mkdir /app/bot
+RUN cp -r ./rasa-ptbr-boilerplate/bot /app/bot
+RUN mkdir /app/modules
+RUN cp -r ./rasa-ptbr-boilerplate/modules /app/modules
+RUN cp -r ./rasa-ptbr-boilerplate/requirements.txt /app/requirements.txt
+RUN cp ./rasa-ptbr-boilerplate/server.sh /app/server.sh
+WORKDIR /app
+
 RUN python -m pip install --upgrade pip                             && \
-    pip install --no-cache-dir -r ./rasa-ptbr-boilerplate/requirements.txt && \
+    pip install --no-cache-dir -r app/requirements.txt && \
     python -c "import nltk; nltk.download('stopwords');"            && \
     find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
-
-RUN mkdir /bot
-RUN cp -r ./rasa-ptbr-boilerplate/bot /bot
-RUN mkdir /modules
-RUN cp -r ./rasa-ptbr-boilerplate/modules /modules
-WORKDIR /bot
-RUN ls
 
 CMD rasa run actions --actions actions -vv
 
 RUN find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 
-RUN rasa train -vv --config bot/config.yml
+RUN rasa train -vv --config app/bot/config.yml
 
-ENTRYPOINT ["./rasa-ptbr-boilerplate/server.sh"]
+ENTRYPOINT ["app/server.sh"]
