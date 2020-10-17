@@ -15,14 +15,14 @@ RUN python -m pip install --upgrade pip                             && \
 
 RUN mkdir /bot
 RUN cp -r ./rasa-ptbr-boilerplate/bot /bot
-RUN mkdir /modules
-RUN cp -r ./rasa-ptbr-boilerplate/modules /modules
 WORKDIR /bot
 
 CMD rasa run actions --actions actions -vv
 
 RUN find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 
-RUN rasa train -vv
+RUN rasa train -vv --config ./rasa-ptbr-boilerplate/bot/config.yml
+RUN mkdir /modules
+RUN cp -r ./rasa-ptbr-boilerplate/modules /modules
 
 ENTRYPOINT ["./rasa-ptbr-boilerplate/server.sh"]
