@@ -16,7 +16,7 @@ RUN cp -r ./rasa-ptbr-boilerplate/modules /app/modules
 RUN cp -r ./rasa-ptbr-boilerplate/requirements.txt /app/requirements.txt
 RUN cp ./rasa-ptbr-boilerplate/server.sh /app/server.sh
 WORKDIR /app
-RUN ls bot
+RUN ls -r bot
 
 RUN python -m pip install --upgrade pip                             && \
     pip install --no-cache-dir -r requirements.txt && \
