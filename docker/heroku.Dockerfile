@@ -16,9 +16,10 @@ RUN cp -r ./rasa-ptbr-boilerplate/modules /app/modules
 RUN cp -r ./rasa-ptbr-boilerplate/requirements.txt /app/requirements.txt
 RUN cp ./rasa-ptbr-boilerplate/server.sh /app/server.sh
 WORKDIR /app
+RUN ls
 
 RUN python -m pip install --upgrade pip                             && \
-    pip install --no-cache-dir -r app/requirements.txt && \
+    pip install --no-cache-dir -r /app/requirements.txt && \
     python -c "import nltk; nltk.download('stopwords');"            && \
     find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 
@@ -26,6 +27,6 @@ CMD rasa run actions --actions actions -vv
 
 RUN find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 
-RUN rasa train -vv --config app/bot/config.yml
+RUN rasa train -vv --config /app/bot/config.yml
 
-ENTRYPOINT ["app/server.sh"]
+ENTRYPOINT ["/app/server.sh"]
