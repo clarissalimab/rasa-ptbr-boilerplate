@@ -8,7 +8,3 @@ build:
     TELEGRAM_WEBHOOK: ${TELEGRAM_WEBHOOK}
 release:
   image: bot
-  command: 
-    - mkdir -p bot/models
-run:
-  bot: rasa run -m models/ -vv --credentials credentials.yml --endpoints endpoints.yml

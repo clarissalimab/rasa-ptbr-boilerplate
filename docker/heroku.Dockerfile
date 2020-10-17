@@ -19,9 +19,10 @@ RUN mkdir /modules
 RUN cp -r ./rasa-ptbr-boilerplate/modules /modules
 WORKDIR /bot
 
-HEALTHCHECK --interval=300s --timeout=60s --retries=5 \
-  CMD curl -f http://0.0.0.0:5055/health || exit 1
-
 CMD rasa run actions --actions actions -vv
 
 RUN find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
+
+RUN rasa train -vv
+
+ENTRYPOINT ["./rasa-ptbr-boilerplate/server.sh"]
