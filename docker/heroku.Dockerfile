@@ -11,7 +11,7 @@ RUN git clone https://github.com/clarissalimab/rasa-ptbr-boilerplate.git
 RUN python -m pip install --upgrade pip                             && \
     pip install --no-cache-dir -r ./rasa-ptbr-boilerplate/requirements.txt && \
     python -c "import nltk; nltk.download('stopwords');"            && \
-    find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf    && \
+    find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 
 RUN mkdir /bot
 RUN cp -r ./rasa-ptbr-boilerplate/bot /bot
